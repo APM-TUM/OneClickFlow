@@ -1,0 +1,2344 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+<meta charset='utf-8'/>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<title>OneClickFlow - Sistemas Empresariales Que Funcionan Desde el Día 1</title>
+<meta name='description' content='Transformamos operaciones complejas en sistemas simples. Un clic para cada acción importante. Sin capacitaciones eternas. Tu equipo productivo desde el primer día.'/>
+<meta name='keywords' content='OneClickFlow, sistemas empresariales, software empresarial, automatización, gestión empresarial, transformación digital'/>
+
+<!-- SEO Meta Tags -->
+<meta property='og:title' content='OneClickFlow - Sistemas que Funcionan desde el Día 1'/>
+<meta property='og:description' content='Un clic para cada acción importante. Sin complicaciones técnicas.'/>
+<meta property='og:image' content='https://i.postimg.cc/zBNTzTp1/ICONO-ATUM.png'/>
+<meta property='og:type' content='website'/>
+<meta name='twitter:card' content='summary_large_image'/>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* ===============================================
+   VARIABLES Y CONFIGURACIÓN BASE
+   =============================================== */
+:root {
+    /* Colores principales */
+    --primary: #FAB702;
+    --primary-dark: #e6a600;
+    --primary-light: #ffd65a;
+    --secondary: #021F2D;
+    --secondary-light: #04283a;
+    
+    /* Colores de texto */
+    --text-dark: #1a202c;
+    --text-medium: #4a5568;
+    --text-light: #718096;
+    
+    /* Colores de fondo */
+    --bg-white: #ffffff;
+    --bg-light: #f7fafc;
+    --bg-gray: #edf2f7;
+    
+    /* Colores de estado */
+    --success: #10b981;
+    --info: #3b82f6;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    
+    /* Transiciones */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Espaciado */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    
+    /* Border radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+}
+
+/* Reset y normalización */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--bg-white);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-base);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Utilidades */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.container-wide {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+/* ===============================================
+   HEADER Y NAVEGACIÓN
+   =============================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1000;
+    transition: all var(--transition-base);
+    border-bottom: 1px solid transparent;
+}
+
+.header.scrolled {
+    box-shadow: var(--shadow-md);
+    border-bottom-color: var(--bg-gray);
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--secondary);
+    z-index: 1001;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    transition: transform var(--transition-base);
+}
+
+.logo:hover .logo-icon {
+    transform: rotate(360deg);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+}
+
+.nav-menu a:not(.btn) {
+    font-weight: 500;
+    color: var(--text-medium);
+    position: relative;
+    padding: var(--spacing-xs) 0;
+}
+
+.nav-menu a:not(.btn)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width var(--transition-base);
+}
+
+.nav-menu a:not(.btn):hover {
+    color: var(--primary);
+}
+
+.nav-menu a:not(.btn):hover::after {
+    width: 100%;
+}
+
+/* Botones */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: 14px 28px;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--secondary);
+    box-shadow: 0 4px 14px 0 rgba(250, 183, 2, 0.4);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 rgba(250, 183, 2, 0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+}
+
+.btn-secondary:hover {
+    background: var(--secondary);
+    color: var(--bg-white);
+}
+
+.btn-white {
+    background: var(--bg-white);
+    color: var(--secondary);
+}
+
+.btn-white:hover {
+    background: var(--bg-light);
+    transform: translateY(-2px);
+}
+
+.btn-lg {
+    padding: 18px 36px;
+    font-size: 1.125rem;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background: var(--secondary);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-base);
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* ===============================================
+   HERO SECTION
+   =============================================== */
+.hero {
+    position: relative;
+    padding: 180px 0 120px;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(250, 183, 2, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(250, 183, 2, 0.1) 0%, transparent 50%);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 10px 20px;
+    background: rgba(250, 183, 2, 0.15);
+    border: 1px solid rgba(250, 183, 2, 0.3);
+    border-radius: var(--radius-full);
+    color: var(--primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    backdrop-filter: blur(10px);
+}
+
+.hero h1 {
+    font-size: 3.75rem;
+    color: var(--bg-white);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.hero h1 .gradient-text {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.375rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.7;
+}
+
+.hero-cta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.hero-stats {
+    display: flex;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.hero-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.hero-stat-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: var(--spacing-xs);
+}
+
+.hero-visual {
+    position: relative;
+    animation: fadeInRight 1s ease-out;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.floating-card {
+    position: absolute;
+    background: var(--bg-white);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-xl);
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-card-1 {
+    top: 10%;
+    right: -10%;
+    width: 200px;
+}
+
+.floating-card-2 {
+    bottom: 10%;
+    left: -10%;
+    width: 180px;
+}
+
+.floating-card-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.floating-card h4 {
+    font-size: 0.875rem;
+    margin-bottom: 4px;
+}
+
+.floating-card p {
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+/* ===============================================
+   TRUSTED BY SECTION
+   =============================================== */
+.trusted-by {
+    padding: var(--spacing-2xl) 0;
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--bg-gray);
+}
+
+.trusted-content {
+    text-align: center;
+}
+
+.trusted-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-lg);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.stat-card {
+    padding: var(--spacing-lg);
+    background: var(--bg-light);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    background: var(--bg-white);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md);
+    background: var(--primary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: var(--secondary);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-medium);
+    font-weight: 500;
+}
+
+/* ===============================================
+   FEATURES SECTION
+   =============================================== */
+.features {
+    padding: var(--spacing-2xl) 0 120px;
+    background: var(--bg-light);
+}
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-2xl);
+}
+
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 8px 16px;
+    background: var(--primary);
+    color: var(--secondary);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.1;
+}
+
+.section-description {
+    font-size: 1.25rem;
+    color: var(--text-medium);
+    line-height: 1.7;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.feature-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transition: transform var(--transition-base);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 8px 16px rgba(250, 183, 2, 0.3);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    color: var(--secondary);
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--secondary);
+}
+
+.feature-card .tagline {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-card p {
+    color: var(--text-medium);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+}
+
+.feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-dark);
+    font-size: 0.9375rem;
+}
+
+.feature-list li::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--success);
+    color: var(--bg-white);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+}
+
+/* ===============================================
+   COMPARISON SECTION
+   =============================================== */
+.comparison {
+    padding: 120px 0;
+    background: var(--bg-white);
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.comparison-card {
+    background: var(--bg-light);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.comparison-card.before {
+    border: 2px solid #fee2e2;
+    background: #fef2f2;
+}
+
+.comparison-card.after {
+    border: 2px solid #d1fae5;
+    background: #f0fdf4;
+}
+
+.comparison-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.comparison-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+}
+
+.comparison-card.before .comparison-icon {
+    background: #fca5a5;
+    color: #991b1b;
+}
+
+.comparison-card.after .comparison-icon {
+    background: #6ee7b7;
+    color: #065f46;
+}
+
+.comparison-header h3 {
+    font-size: 1.75rem;
+}
+
+.comparison-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.comparison-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.comparison-list li::before {
+    content: '';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.comparison-card.before .comparison-list li::before {
+    content: '✗';
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.comparison-card.after .comparison-list li::before {
+    content: '✓';
+    background: #d1fae5;
+    color: #10b981;
+}
+
+/* ===============================================
+   SERVICES SECTION
+   =============================================== */
+.services {
+    padding: 120px 0;
+    background: var(--bg-light);
+}
+
+.service-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--bg-white);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: var(--spacing-2xl);
+    transition: all var(--transition-base);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.service-card:nth-child(even) {
+    direction: rtl;
+}
+
+.service-card:nth-child(even) > * {
+    direction: ltr;
+}
+
+.service-content {
+    padding: var(--spacing-2xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.service-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--primary);
+    color: var(--secondary);
+    border-radius: var(--radius-lg);
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-lg);
+}
+
+.service-content h3 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--secondary);
+}
+
+.service-content .tagline {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.service-content p {
+    color: var(--text-medium);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.0625rem;
+}
+
+.service-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.service-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.9375rem;
+    color: var(--text-dark);
+}
+
+.service-feature i {
+    color: var(--success);
+    font-size: 1.125rem;
+}
+
+.service-image {
+    position: relative;
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+}
+
+.service-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(250, 183, 2, 0.1) 0%, rgba(2, 31, 45, 0.05) 100%);
+}
+
+/* ===============================================
+   PROCESS SECTION
+   =============================================== */
+.process {
+    padding: 120px 0;
+    background: var(--secondary);
+    color: var(--bg-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.process::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(250, 183, 2, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(250, 183, 2, 0.08) 0%, transparent 50%);
+}
+
+.process .section-title,
+.process .section-description {
+    color: var(--bg-white);
+}
+
+.process-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: var(--spacing-2xl) auto 0;
+}
+
+.process-step {
+    display: grid;
+    grid-template-columns: 1fr 100px 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+    align-items: center;
+    position: relative;
+}
+
+.process-step::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100px;
+    width: 2px;
+    height: calc(100% + var(--spacing-2xl));
+    background: linear-gradient(180deg, var(--primary) 0%, transparent 100%);
+    transform: translateX(-50%);
+}
+
+.process-step:last-child::before {
+    display: none;
+}
+
+.process-step:nth-child(even) .process-content:first-child {
+    text-align: right;
+}
+
+.process-content {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-base);
+}
+
+.process-content:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-5px);
+}
+
+.process-content h4 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.process-content p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+}
+
+.process-number {
+    width: 100px;
+    height: 100px;
+    background: var(--primary);
+    color: var(--secondary);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    box-shadow: 0 0 0 16px rgba(250, 183, 2, 0.15);
+    position: relative;
+    z-index: 1;
+}
+
+/* ===============================================
+   TESTIMONIALS SECTION
+   =============================================== */
+.testimonials {
+    padding: 120px 0;
+    background: var(--bg-light);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.testimonial-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow);
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: var(--spacing-lg);
+    left: var(--spacing-lg);
+    font-size: 5rem;
+    color: var(--primary);
+    opacity: 0.1;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.testimonial-rating {
+    display: flex;
+    gap: 4px;
+    margin-bottom: var(--spacing-md);
+}
+
+.testimonial-rating i {
+    color: var(--primary);
+    font-size: 1.125rem;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--bg-gray);
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--secondary);
+    flex-shrink: 0;
+}
+
+.author-info h5 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+}
+
+.author-info p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+/* ===============================================
+   CTA SECTION
+   =============================================== */
+.cta {
+    padding: 120px 0;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    border-radius: var(--radius-full);
+}
+
+.cta-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.cta h2 {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.2;
+}
+
+.cta p {
+    font-size: 1.375rem;
+    color: var(--secondary);
+    margin-bottom: var(--spacing-xl);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta .btn {
+    padding: 18px 40px;
+    font-size: 1.125rem;
+}
+
+.cta .btn-secondary {
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+.cta .btn-secondary:hover {
+    background: var(--secondary);
+    color: var(--bg-white);
+}
+
+/* ===============================================
+   CONTACT SECTION
+   =============================================== */
+.contact {
+    padding: 120px 0;
+    background: var(--bg-white);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.contact-info h3 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-info > p {
+    color: var(--text-medium);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.0625rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--bg-light);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-base);
+}
+
+.contact-item:hover {
+    background: var(--bg-gray);
+    transform: translateX(5px);
+}
+
+.contact-item-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    color: var(--secondary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.contact-item-content h4 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+}
+
+.contact-item-content p {
+    color: var(--text-medium);
+    font-size: 0.9375rem;
+}
+
+.contact-form {
+    background: var(--bg-light);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-2xl);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-dark);
+    font-size: 0.9375rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid transparent;
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all var(--transition-base);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(250, 183, 2, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.form-submit {
+    width: 100%;
+    margin-top: var(--spacing-md);
+}
+
+/* ===============================================
+   FOOTER
+   =============================================== */
+.footer {
+    background: var(--secondary);
+    color: rgba(255, 255, 255, 0.8);
+    padding: var(--spacing-2xl) 0 var(--spacing-xl);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.footer-brand h3 {
+    color: var(--primary);
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-brand p {
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.social-link {
+    width: 44px;
+    height: 44px;
+    background: rgba(250, 183, 2, 0.1);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-base);
+}
+
+.social-link:hover {
+    background: var(--primary);
+    color: var(--secondary);
+    transform: translateY(-3px);
+}
+
+.footer-links h4 {
+    color: var(--primary);
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: all var(--transition-base);
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===============================================
+   ANIMATIONS
+   =============================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN
+   =============================================== */
+@media (max-width: 1024px) {
+    .hero-grid,
+    .service-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card:nth-child(even) {
+        direction: ltr;
+    }
+    
+    .hero-visual {
+        margin-top: var(--spacing-2xl);
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-step {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .process-step:nth-child(even) .process-content:first-child {
+        text-align: center;
+    }
+    
+    .process-step::before {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--bg-white);
+        flex-direction: column;
+        padding: var(--spacing-xl);
+        gap: var(--spacing-lg);
+        box-shadow: var(--shadow-xl);
+        transition: left var(--transition-base);
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .hero {
+        padding: 120px 0 60px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .features-grid,
+    .testimonials-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta h2 {
+        font-size: 2rem;
+    }
+    
+    .cta p {
+        font-size: 1.125rem;
+    }
+    
+    .floating-card {
+        display: none;
+    }
+}
+
+/* ===============================================
+   UTILITY CLASSES
+   =============================================== */
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: var(--spacing-xl);
+}
+
+.mb-4 {
+    margin-bottom: var(--spacing-xl);
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+</style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav-wrapper">
+                <a href="#" class="logo">
+                    <img src="https://i.postimg.cc/zBNTzTp1/ICONO-ATUM.png" alt="OneClickFlow" class="logo-icon">
+                    <span>OneClickFlow</span>
+                </a>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#features">Características</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#proceso">Proceso</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contacto" class="btn btn-primary">Agenda tu Demo</a></li>
+                </ul>
+                
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-rocket"></i>
+                        Sistemas Empresariales del Futuro
+                    </div>
+                    <h1>
+                        Un clic para cada<br>
+                        acción <span class="gradient-text">importante</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Sin capacitaciones eternas. Sin manuales técnicos. Sin complicaciones.<br>
+                        <strong>Tu equipo trabaja más rápido desde el primer día.</strong>
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#contacto" class="btn btn-primary btn-lg">
+                            <i class="fas fa-calendar-check"></i>
+                            Agenda tu Demo Gratuita
+                        </a>
+                        <a href="#features" class="btn btn-white btn-lg">
+                            <i class="fas fa-play-circle"></i>
+                            Ver Cómo Funciona
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">85%</div>
+                            <div class="hero-stat-label">Menos capacitación</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">10min</div>
+                            <div class="hero-stat-label">Para dominar el sistema</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">24/7</div>
+                            <div class="hero-stat-label">Funcionamiento</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <img src="https://i.postimg.cc/wBj5Xphz/2.png" alt="OneClickFlow Dashboard" class="hero-image">
+                    </div>
+                    
+                    <div class="floating-card floating-card-1">
+                        <div class="floating-card-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Venta Registrada</h4>
+                        <p>En 15 segundos</p>
+                    </div>
+                    
+                    <div class="floating-card floating-card-2">
+                        <div class="floating-card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Equipo Productivo</h4>
+                        <p>Desde el día 1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By / Stats -->
+    <section class="trusted-by">
+        <div class="container">
+            <div class="trusted-content">
+                <p class="trusted-label">Resultados que Transforman Operaciones</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">Reducción en tiempo<br>de capacitación</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-number">10min</div>
+                        <div class="stat-label">Para aprender<br>el sistema completo</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-mouse-pointer"></i>
+                        </div>
+                        <div class="stat-number">1 clic</div>
+                        <div class="stat-label">Por cada acción<br>importante</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Funcionamiento<br>garantizado</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-star"></i>
+                    Por qué OneClickFlow
+                </div>
+                <h2 class="section-title">Tres pilares que transforman tu operación</h2>
+                <p class="section-description">
+                    No vendemos software complicado. Creamos sistemas que tu equipo realmente usa y ama.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-crosshairs feature-icon"></i>
+                    </div>
+                    <h3>Simplicidad Radical</h3>
+                    <p class="tagline">Un clic = Una acción completa</p>
+                    <p>
+                        Otros sistemas te hacen navegar por 5 menús para registrar una venta. 
+                        Los nuestros: <strong>1 clic, venta registrada.</strong>
+                    </p>
+                    <ul class="feature-list">
+                        <li>Sin tecnicismos innecesarios</li>
+                        <li>Sin complicaciones técnicas</li>
+                        <li>Sin manuales de 50 páginas</li>
+                        <li>Interfaz intuitiva desde el día 1</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-rocket feature-icon"></i>
+                    </div>
+                    <h3>Velocidad Operativa</h3>
+                    <p class="tagline">Tu equipo funciona desde el día 1</p>
+                    <p>
+                        No pierdas semanas capacitando empleados. Con OneClickFlow, 
+                        <strong>aprenden en 10 minutos. Usan en segundos.</strong>
+                    </p>
+                    <ul class="feature-list">
+                        <li>Capacitación de 10 minutos</li>
+                        <li>Operación en segundos</li>
+                        <li>Más tiempo trabajando</li>
+                        <li>Menos tiempo aprendiendo</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-shield-check feature-icon"></i>
+                    </div>
+                    <h3>Confiabilidad Total</h3>
+                    <p class="tagline">Funciona siempre, desde cualquier lugar</p>
+                    <p>
+                        Celular, tablet o computadora. Oficina o en ruta. 
+                        <strong>Tus datos seguros. Tu operación sin interrupciones.</strong>
+                    </p>
+                    <ul class="feature-list">
+                        <li>Acceso multiplataforma</li>
+                        <li>Datos siempre protegidos</li>
+                        <li>Backups automáticos</li>
+                        <li>Soporte técnico 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-balance-scale"></i>
+                    Antes vs Después
+                </div>
+                <h2 class="section-title">La diferencia OneClickFlow</h2>
+                <p class="section-description">
+                    Descubre cómo transformamos tu operación eliminando la complejidad innecesaria.
+                </p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-card before">
+                    <div class="comparison-header">
+                        <div class="comparison-icon">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <h3>Sin OneClickFlow</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li>5 minutos para registrar una venta</li>
+                        <li>Semanas de capacitación del equipo</li>
+                        <li>Empleados frustrados con el sistema</li>
+                        <li>Errores constantes por procesos complicados</li>
+                        <li>Sistemas que nadie quiere usar</li>
+                        <li>Dependencia total del departamento IT</li>
+                        <li>Miedo a actualizar el sistema</li>
+                        <li>Pérdida de tiempo en tareas manuales</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card after">
+                    <div class="comparison-header">
+                        <div class="comparison-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h3>Con OneClickFlow</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li>15 segundos por operación completa</li>
+                        <li>Capacitación de solo 10 minutos</li>
+                        <li>Equipo trabajando con confianza total</li>
+                        <li>Menos errores, más productividad</li>
+                        <li>Tu equipo pide usar el sistema</li>
+                        <li>Autonomía operativa completa</li>
+                        <li>Actualizaciones sin interrupciones</li>
+                        <li>Automatización inteligente de procesos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container-wide">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-briefcase"></i>
+                    Nuestros Servicios
+                </div>
+                <h2 class="section-title">Soluciones diseñadas para tu éxito</h2>
+                <p class="section-description">
+                    Tres servicios fundamentales que transforman tu operación digital de forma integral.
+                </p>
+            </div>
+
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-content">
+                    <div class="service-number">01</div>
+                    <h3>Tecnología sin complicaciones</h3>
+                    <p class="tagline">Tu equipo no debería necesitar un manual para usar sus herramientas</p>
+                    <p>
+                        Eliminamos la complejidad innecesaria. Creamos sistemas donde cada acción importante 
+                        toma un solo clic. El resultado: tu equipo trabaja más rápido, con más confianza y 
+                        menos frustración desde el primer día.
+                    </p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>15 segundos por operación</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Equipo trabajando con confianza</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Menos errores, más productividad</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Sistemas que tu equipo ama usar</span>
+                        </div>
+                    </div>
+                    <a href="#contacto" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i>
+                        Más Información
+                    </a>
+                </div>
+                <div class="service-image" style="background-image: url('https://i.postimg.cc/wBj5Xphz/2.png');"></div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-content">
+                    <div class="service-number">02</div>
+                    <h3>Datos siempre seguros</h3>
+                    <p class="tagline">Trabaja tranquilo. Tus datos están protegidos</p>
+                    <p>
+                        Tus datos están respaldados automáticamente. Accesos controlados. Sin riesgos. 
+                        Y lo mejor: no necesitas ser experto en tecnología para estar completamente seguro. 
+                        Nosotros nos encargamos de todo.
+                    </p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Backups automáticos diarios</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Control de accesos granular</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Recuperación rápida garantizada</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Monitoreo 24/7 automático</span>
+                        </div>
+                    </div>
+                    <a href="#contacto" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i>
+                        Más Información
+                    </a>
+                </div>
+                <div class="service-image" style="background-image: url('https://i.postimg.cc/NMW1v2ZG/3.png');"></div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-content">
+                    <div class="service-number">03</div>
+                    <h3>Soluciones a tu medida</h3>
+                    <p class="tagline">Tu negocio es único. Tu sistema también</p>
+                    <p>
+                        No vendemos plantillas genéricas que te fuerzan a cambiar tu forma de trabajar. 
+                        Creamos sistemas diseñados específicamente para TU operación, adaptándose a tu 
+                        flujo de trabajo real, no al revés.
+                    </p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Análisis personalizado completo</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Diseño para tu flujo de trabajo</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Sin imposiciones de procesos</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Escalable con tu crecimiento</span>
+                        </div>
+                    </div>
+                    <a href="#contacto" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i>
+                        Más Información
+                    </a>
+                </div>
+                <div class="service-image" style="background-image: url('https://i.postimg.cc/xTVKsHKt/4.png');"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="proceso">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" style="background: var(--bg-white); color: var(--secondary);">
+                    <i class="fas fa-cogs"></i>
+                    Nuestro Proceso
+                </div>
+                <h2 class="section-title">Cómo trabajamos contigo</h2>
+                <p class="section-description">
+                    Un proceso simple, transparente y efectivo en 4 pasos claros.
+                </p>
+            </div>
+
+            <div class="process-timeline">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="process-content">
+                        <h4>Entendemos tu negocio</h4>
+                        <p>
+                            Conversamos sobre cómo trabajas hoy. Identificamos qué te frustra de tu sistema 
+                            actual y qué necesitas que funcione mejor. Sin tecnicismos, hablamos tu idioma.
+                        </p>
+                    </div>
+                    <div class="process-number">1</div>
+                    <div></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div></div>
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <h4>Diseñamos tu solución perfecta</h4>
+                        <p>
+                            Creamos un sistema simple que se adapta a tu forma de trabajar. No te forzamos 
+                            a cambiar tus procesos exitosos. El sistema se adapta a ti, no tú al sistema.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="process-content">
+                        <h4>Implementamos sin dolor</h4>
+                        <p>
+                            Instalación rápida y sin complicaciones. Capacitación de solo 10 minutos. 
+                            Tu equipo empieza a trabajar el mismo día, sin interrumpir tu operación.
+                        </p>
+                    </div>
+                    <div class="process-number">3</div>
+                    <div></div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div></div>
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <h4>Te acompañamos siempre</h4>
+                        <p>
+                            Soporte técnico 24/7. Actualizaciones automáticas sin interrupciones. 
+                            Ajustes cuando tu negocio crece. Estamos contigo en cada paso del camino.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-quote-left"></i>
+                    Testimonios
+                </div>
+                <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+                <p class="section-description">
+                    Empresas que ya trabajan más rápido y con más confianza gracias a OneClickFlow.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Antes perdíamos 2 horas diarias en procesos complicados. Con OneClickFlow, 
+                        lo resolvemos en 15 minutos. Nuestro equipo está más feliz y somos 
+                        significativamente más productivos."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MC</div>
+                        <div class="author-info">
+                            <h5>María Contreras</h5>
+                            <p>Directora de Operaciones, TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "La capacitación fue de literalmente 10 minutos. Al día siguiente, todo el equipo 
+                        ya estaba trabajando como si lo hubieran usado toda la vida. Increíble."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JR</div>
+                        <div class="author-info">
+                            <h5>Juan Rodríguez</h5>
+                            <p>CEO, Distribuciones del Norte</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Por fin un sistema que mi equipo realmente quiere usar. Simple, rápido y siempre 
+                        funciona. Sin duda la mejor inversión tecnológica que hemos hecho."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LC</div>
+                        <div class="author-info">
+                            <h5>Laura Castro</h5>
+                            <p>Gerente General, Comercial Hispana</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Listo para transformar tu operación?</h2>
+                <p>
+                    Agenda una demo gratuita y descubre cómo OneClickFlow puede llevar 
+                    tu tecnología empresarial al siguiente nivel.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contacto" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-calendar-check"></i>
+                        Agenda tu Demo Gratuita
+                    </a>
+                    <a href="#services" class="btn btn-white btn-lg">
+                        <i class="fas fa-info-circle"></i>
+                        Conocer Más
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-envelope"></i>
+                    Contacto
+                </div>
+                <h2 class="section-title">Hablemos de tu proyecto</h2>
+                <p class="section-description">
+                    ¿Listo para simplificar tu operación? Contáctanos y te mostraremos cómo.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <p>
+                        Estamos aquí para responder todas tus preguntas y ayudarte a dar el primer paso 
+                        hacia una operación más simple y eficiente.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Dirección</h4>
+                                <p>Valencia, España</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Email</h4>
+                                <p>soporte.atum@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Horario de Atención</h4>
+                                <p>Lunes - Viernes: 10:00 - 17:00<br>Sábado: 11:00 - 14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="empresa">Empresa</label>
+                            <input type="text" id="empresa" name="empresa">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>OneClickFlow</h3>
+                    <p>
+                        Sistemas tan simples que tu equipo los usa desde el primer día. 
+                        Sin complicaciones técnicas. Sin capacitaciones eternas. 
+                        Un clic para cada acción importante.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/a-tum/" class="social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#services">Tecnología Simple</a></li>
+                        <li><a href="#services">Datos Seguros</a></li>
+                        <li><a href="#services">Soluciones a Medida</a></li>
+                        <li><a href="#features">Características</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#features">Cómo Funciona</a></li>
+                        <li><a href="#proceso">Nuestro Proceso</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="#contacto">Agenda una Demo</a></li>
+                        <li><a href="mailto:soporte.atum@gmail.com">Soporte Técnico</a></li>
+                        <li><a href="#contacto">Preguntas Frecuentes</a></li>
+                        <li><a href="#contacto">Ayuda</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> OneClickFlow by A-TUM. Todos los derechos reservados. | Innovación y simplicidad en cada clic.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+            this.reset();
+        });
+
+        // Current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.feature-card, .service-card, .testimonial-card, .stat-card, .comparison-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Prevent closing menu when clicking inside it
+        navMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
